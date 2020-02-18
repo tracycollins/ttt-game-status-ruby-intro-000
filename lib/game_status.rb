@@ -22,7 +22,7 @@ def empty_board?(board)
 end
 
 def winner?(board, player)
-  WIN_COMBINATIONS.each? do |combination|
+  WIN_COMBINATIONS.each do |combination|
     if combination.all? { |index| board[index] == player}
       return combination
     else
