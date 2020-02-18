@@ -21,22 +21,20 @@ def empty_board?(board)
   end
 end
 
-def winner?(board, player)
+def winner?(board)
   WIN_COMBINATIONS.each do |combination|
-    if combination.all? { |index| board[index] == player}
+    if combination.all? { |index| board[index] == "X"}
       return combination
-    else
-      return false
-    end
+    elsif combination.all? { |index| board[index] == "O"}
+      return combination
   end
+  false
 end
 
 def won?(board)
   if empty_board?(board)
     return false
-  elsif winner?(board, "X")
-    return false
-  elsif !winner?(board, "X") && !winner?(board, "O")
-    return false
+  else
+    winner?(board)
   end
 end
