@@ -31,6 +31,10 @@ def draw?(board)
   full?(board) && !winner?(board)
 end
 
+def over?(board)
+  full?(board) || winner?(board)
+end
+
 def winner?(board)
   WIN_COMBINATIONS.each do |combination|
     if combination.all? { |index| board[index] == "X"}
