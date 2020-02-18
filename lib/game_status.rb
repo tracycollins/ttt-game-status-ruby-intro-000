@@ -30,7 +30,7 @@ end
 def won?(board)
   if empty_board?(board)
     return false
-  elsif !winner(board, "X") && !winner(board, "O")
+  elsif !winner?(board, "X") && !winner?(board, "O")
     return false
   end
 end
