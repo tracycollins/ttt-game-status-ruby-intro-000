@@ -19,4 +19,7 @@ def won?(board)
   board.all? do |position|
     position == "X" || position == "O"
   end
+  WIN_COMBINATIONS.none? do |combination|
+    combination.all? { |player| player == "X"}
+  end
 end
