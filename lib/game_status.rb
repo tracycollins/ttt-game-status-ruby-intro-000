@@ -35,7 +35,7 @@ def over?(board)
   full?(board) || win?(board)
 end
 
-def winner?(board)
+def winner(board)
   combination = win?(board)
   if (combination)
     return board[combination[0]]
