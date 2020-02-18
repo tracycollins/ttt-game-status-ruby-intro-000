@@ -16,7 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  board.none? do |position|
+  board.all? do |position|
     position == "X" || position == "O"
   end
 end
