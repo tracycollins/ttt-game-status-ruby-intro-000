@@ -15,11 +15,20 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
-def won?(board)
+def empty_board?(board)
   board.all? do |position|
-    position == "X" || position == "O"
+    position != "X" && position != "O"
   end
-  WIN_COMBINATIONS.none? do |combination|
-    combination.all? { |player| player == "X"}
+end
+
+def winner?(board, player)
+  WIN_COMBINATIONS.any? do |combination|
+    combination.all? { |index| board[index] == player}
+  end
+end
+
+def won?(board)
+  if empty_board?(board)
+    return false
   end
 end
