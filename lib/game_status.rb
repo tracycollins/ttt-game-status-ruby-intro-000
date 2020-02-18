@@ -28,14 +28,22 @@ def full?(board)
 end
 
 def draw?(board)
-  full?(board) && !winner?(board)
+  full?(board) && !win?(board)
 end
 
 def over?(board)
-  full?(board) || winner?(board)
+  full?(board) || win?(board)
 end
 
 def winner?(board)
+  combination = win?(board)
+  if (combination)
+    return board[combination[0]]
+  end
+  false
+end
+
+def win?(board)
   WIN_COMBINATIONS.each do |combination|
     if combination.all? { |index| board[index] == "X"}
       return combination
@@ -50,6 +58,6 @@ def won?(board)
   if empty_board?(board)
     return false
   else
-    winner?(board)
+    win?(board)
   end
 end
